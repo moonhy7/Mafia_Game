@@ -23,7 +23,7 @@ public class TcpServer {
 		
 		switch (select) {
 		case 1:
-			System.out.printf("          1 → Start                   \n");
+			System.out.printf("    1 → Start     \n");
 			System.out.println();
 			break;
 
@@ -50,16 +50,13 @@ public class TcpServer {
 		System.out.printf("                                      \n");
 		System.out.printf("          ■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
 		System.out.printf("                                      \n");
-		System.out.printf("            [SERVER version 1.0.1®]   \n");
+		System.out.printf("            [마피아 게임 시작]   \n");
 		System.out.printf("                                      \n");
 		System.out.printf("          ■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
 		System.out.printf("                                      \n");
-		System.out.printf("                                      \n");
-		System.out.printf("                                      \n");
+
 		
-		System.out.printf("          1 → Start                   \n");
-		System.out.printf("          0 → End                     \n");
-		System.out.printf("                                      \n");
-		System.out.printf("                                      \n");
+		System.out.printf("          1 → 게임 입장           \n");
+		System.out.printf("          0 → 게임 퇴장           \n");
 	}
 }

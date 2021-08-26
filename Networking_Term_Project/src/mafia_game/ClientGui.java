@@ -16,8 +16,11 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -33,10 +36,12 @@ public class ClientGui extends JFrame implements ActionListener, Runnable{
 	// 클라이언트 화면용
 	JFrame frame = new JFrame();
 	JPanel panel = new JPanel();
+
 	Container container = getContentPane();
 	JTextArea textArea = new JTextArea();
 	JScrollPane scrollPane = new JScrollPane(textArea);
 	JTextField textField = new JTextField();
+	
 	
 	Timer2 timer = new Timer2();
 	Image image = new Image();
@@ -45,10 +50,15 @@ public class ClientGui extends JFrame implements ActionListener, Runnable{
 	JLabel label3 = new JLabel("직업표");
 	JTable jb_table = new JTable();
 	
+	JButton btn1 = new JButton("투표하기");
+
+	
+	
+	
 	
 	// 통신용
 	Socket socket;
-	PrintWriter out;
+	static PrintWriter out;
 	BufferedReader in;
 	String str; 		// 채팅 문자열 저장
 	
@@ -56,10 +66,18 @@ public class ClientGui extends JFrame implements ActionListener, Runnable{
 		// frame 기본 설정
 		setTitle("마피아 게임");
 		setSize(1300, 900);
-		setLocation(300, 300);
+		setLocation(50, 50);
 		init();
 		start();
 		setVisible(true);
+		
+		// jb_table.setSize(10, 90);
+		
+		
+		jb_table.setPreferredSize(new Dimension(200,200));
+		
+		
+		
 		// 통신 초기화
 		initNet(ip, port);
 		System.out.println("ip = " + ip);
@@ -90,6 +108,7 @@ public class ClientGui extends JFrame implements ActionListener, Runnable{
 	void TableTest(){
 
         String []a = {"플레이어","직업"};
+         
         String [][]b = {
 				{"다현","마피아"},{"하윤","의사"},{"용원","경찰"},{"원준","시민"},{"비트","시민"}
 		};
@@ -104,8 +123,11 @@ public class ClientGui extends JFrame implements ActionListener, Runnable{
         //3. 결과적으로는 JScrollPane를 추가합니다.
         JScrollPane sc = new JScrollPane(table);
         
+		container.add("East", sc);
+
+        
         //4. 컴포넌트에  Table 추가
-        container.add("East", sc);
+        
         
         //테이블에 데이터 추가하기
         //원본데이터를 건들지 않고 table의 매개변수인 model에 있는 데이터를 변경합니다
@@ -137,9 +159,8 @@ public class ClientGui extends JFrame implements ActionListener, Runnable{
 		    }
 
 	
-	
-	
-	
+	 
+
 	/**이미지 추가*/
 	class Image extends JPanel {
 		public void paintComponent(Graphics g) {
@@ -150,16 +171,72 @@ public class ClientGui extends JFrame implements ActionListener, Runnable{
 		}
 	}
 	
+
+
+
+
+	// 투표 버튼 생성
+	class Button {
+
+		public void popUp() {
+
+//			String[] keys = new String[TcpServerHandler.sendMap.size()];
+
+			String[] data = {};
+			
+			
+			
+			for(int i = 0; i < TcpServerHandler.userMap.size(); i++) {
+				data[i] = TcpServerHandler.userMap.get(""+i);
+			}
+			
+//			int num = JOptionPane.showOptionDialog(null, "죽일 사람을 선택해주세요", "토론 종료",
+//					JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, data, "두 번째값");
+			int n = JOptionPane.showOptionDialog(null,
+					"죽일 사람을 선택해주세요", "토론 종료",
+				    JOptionPane.YES_NO_CANCEL_OPTION,
+				    JOptionPane.QUESTION_MESSAGE,
+				    null,     //do not use a custom Icon
+				    data,  //the titles of buttons
+				    "두 번째값");
+//			ClientGui.out.println(num);
+			
+			//System.out.println(data[0]);
+
+		}		
+
+	}
+	
+	
+	
+	
 	
 	// 레이아웃
-	private void init() {
+	private void init() {		
+		btn1.addActionListener(new ActionListener() {
+
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        //your actions
+		    	Button btn = new Button();
+		    	btn.popUp();
+		    }
+		});
 		container.setLayout(new BorderLayout(10,90));
 		container.add("Center", scrollPane); // 스크롤
 		container.add("South", textField); // 채팅 입력 필드
 		container.add("West", timer); // 타이머
 		container.add("North", image); // 그림
+		container.add("East", btn1); // 버튼
+//		container.setLayout(new GridLayout(0,3));
+		// 컨테이너 - 프레임, 
+//		container.add("East", panel);
+		 
+		
+		
+		
 //		container.add("East", sc); // 직업표
-		TableTest();
+//		 TableTest();
 
 	}
 	
@@ -186,6 +263,9 @@ public class ClientGui extends JFrame implements ActionListener, Runnable{
 		// textField의 문자열을 읽어와서 서버로 전송함
 		str = textField.getText();
 		out.println(str);
+		/*
+		 * if(str.indexOf("게임 시작") > 0) { Timer2 tm2 = new Timer2(); tm2.run(); }
+		 */
 		// textField 초기화
 		textField.setText("");
 	}
