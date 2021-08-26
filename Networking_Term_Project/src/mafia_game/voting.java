@@ -13,7 +13,7 @@ public class voting {
 	   
 	   
 	   
-      String[] data = {"하윤", "다", "한윤", "다현", "다현"};
+      String[] data = {"하윤", "하윤", "하윤", "다현", "다현"};
 
       HashMap<String, Integer> map = new HashMap<>();
 
@@ -44,7 +44,7 @@ public class voting {
          total++;
          
          if(map.get(key) > 5/2.0) {
-            System.out.println(key + "을 죽였습니다ㅁㄴㄹㅇ.");
+            System.out.println(key + "을 죽였습니다.");
             break;
          }
 
@@ -58,7 +58,7 @@ public class voting {
                continue;
             }
             else if(count == 2) {
-               System.out.println(" 아무일도 일어나지 않았습니다00.");
+               System.out.println(" 아무일도 일어나지 않았습니다.");
                break;
             }
 
@@ -72,11 +72,11 @@ public class voting {
          else  { //1 1 1 1 1    2111
 
             if(count==1) {
-               System.out.println(listKeySet.get(total-2) + "을 죽였습니다ㅁㄴㄹㅇ.");
+               System.out.println(listKeySet.get(total-2) + "을 죽였습니다.");
                break;
 
             } else {
-               System.out.println(" 아무일도 일어나지 않았습니다22.");
+               System.out.println(" 아무일도 일어나지 않았습니다.");
                break;
 
             }
