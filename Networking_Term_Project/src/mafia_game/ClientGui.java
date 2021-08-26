@@ -165,7 +165,7 @@ public class ClientGui extends JFrame implements ActionListener, Runnable{
 	class Image extends JPanel {
 		public void paintComponent(Graphics g) {
 			Dimension d = getSize();
-			ImageIcon image = new ImageIcon("C:\\Temp\\mafia.png");
+			ImageIcon image = new ImageIcon("C:\\Dev211\\Java_programing\\Networking_Term_Project\\resources\\mafia.png");
 			g.drawImage(image.getImage(), 0, 0, 1300, 100, null);
 			setSize(1300,100);
 		}
