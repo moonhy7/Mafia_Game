@@ -14,8 +14,6 @@
 
 ![image](https://user-images.githubusercontent.com/78725674/131093882-48d19ed8-2b55-4868-9daf-17c9f1250d37.png)
 
-![image](https://user-images.githubusercontent.com/78725674/131093894-4372d2e6-4a34-4217-962c-6c7d22fd08e6.png)
-
 ![image](https://user-images.githubusercontent.com/78725674/131093906-6fccf177-e2a7-4647-8521-3ad05ca358d8.png)
 
 ![image](https://user-images.githubusercontent.com/78725674/131093939-49052d00-d607-4d13-bc79-b5a4ee5b74c0.png)
