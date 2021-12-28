@@ -32,3 +32,13 @@
 ![image](https://user-images.githubusercontent.com/78725674/131094035-0d94cc02-ee92-46ec-b93f-0d2b816ddd20.png)
 
 ![image](https://user-images.githubusercontent.com/78725674/131094041-23533d6e-c3ab-4d7e-a1be-cc94678bfd4d.png)
+
+ - 플레이어들이 각자 사회자, 마피아, 시민, 의사, 경찰 5가지 직업을 랜덤으로 배정
+ 
+ - 아침이 되면 토론을 통해 마피아를 찾고 투표 진행 후 다수결로 처형 결정
+
+ - 저녁이 되면 마피아는 1명을 Kill, 의사는 Save, 경찰은 Search 작업을 수행
+
+ - 최종적으로 마피아가 시민의 수보다 많으면 마피아의 승리
+
+ - 그 전에 마피아가 투표 시간에 지목 당하면 시민의 승리
